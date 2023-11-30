@@ -24,7 +24,7 @@ inline fun <T> List<T>.split(predicate: (T) -> Boolean): List<List<T>> {
 /**
  * Removes n last entries from list and return it.
  */
-inline fun <T> MutableList<T>.removeLast(n: Int): List<T> {
+fun <T> MutableList<T>.removeLast(n: Int): List<T> {
     if (isEmpty()) {
         return emptyList()
     }
@@ -43,14 +43,14 @@ inline fun <T> MutableList<T>.removeLast(n: Int): List<T> {
  *
  * Throws an [IndexOutOfBoundsException] if the size of this list is less than 6.
  */
-inline operator fun <T> List<T>.component6(): T {
+operator fun <T> List<T>.component6(): T {
     return get(5)
 }
 
 /**
  * Returns the multiplication of all elements in the collection.
  */
-inline fun List<Int>.multiply(): Int {
+fun List<Int>.multiply(): Int {
     if (this.isEmpty()) return 0
 
     var sum: Int = 1
@@ -63,7 +63,7 @@ inline fun List<Int>.multiply(): Int {
 /**
  * Returns the multiplication of all elements in the collection.
  */
-inline fun List<Long>.multiply(): Long {
+fun List<Long>.multiply(): Long {
     if (this.isEmpty()) return 0
 
     var sum: Long = 1
