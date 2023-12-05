@@ -53,7 +53,7 @@ operator fun <T> List<T>.component6(): T {
 fun List<Int>.multiply(): Int {
     if (this.isEmpty()) return 0
 
-    var sum: Int = 1
+    var sum = 1
     for (element in this) {
         sum *= element
     }
@@ -77,8 +77,8 @@ fun List<Long>.multiply(): Long {
  * For each indexed for two-dimensional
  */
 inline fun List<String>.walkIndexed(action: (x: Int, y: Int, c: Char) -> Unit) {
-    forEachIndexed { x, internal ->
-        internal.forEachIndexed { y, e ->
+    forEachIndexed { y, internal ->
+        internal.forEachIndexed { x, e ->
             action(x, y, e)
         }
     }
