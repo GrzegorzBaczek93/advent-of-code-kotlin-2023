@@ -39,15 +39,6 @@ fun <T> MutableList<T>.removeLast(n: Int): List<T> {
 }
 
 /**
- * Returns 6th *element* from the list.
- *
- * Throws an [IndexOutOfBoundsException] if the size of this list is less than 6.
- */
-operator fun <T> List<T>.component6(): T {
-    return get(5)
-}
-
-/**
  * Returns the multiplication of all elements in the collection.
  */
 fun List<Int>.multiply(): Int {
