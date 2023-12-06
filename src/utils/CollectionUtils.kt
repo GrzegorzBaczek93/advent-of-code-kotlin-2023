@@ -83,3 +83,26 @@ inline fun List<String>.walkIndexed(action: (x: Int, y: Int, c: Char) -> Unit) {
         }
     }
 }
+
+/**
+ * Increases value in index element or put default value there instead
+ */
+fun MutableList<Int>.putOrIncreaseBy(index: Int, value: Int = 1) {
+    if (index < this.size) {
+        this[index] += value
+    } else {
+        this.add(index, value)
+    }
+}
+
+/**
+ * Gets value for given index or put default value there if non existent
+ */
+fun <T> MutableList<T>.getOrPut(index: Int, defaultValue: T): T {
+    return if (index in 0..lastIndex) {
+        get(index)
+    } else {
+        add(index, defaultValue)
+        defaultValue
+    }
+}
