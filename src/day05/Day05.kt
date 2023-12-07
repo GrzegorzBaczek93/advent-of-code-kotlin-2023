@@ -6,12 +6,12 @@ import utils.*
 
 fun main() {
     val testInput = readInput("input_05_test")
-    withStopwatch { println(part1(testInput)) }
+//    withStopwatch { println(part1(testInput)) }
 //    withStopwatch { println(part2(testInput)) }
 
     val input = readInput("input_05")
-    withStopwatch { println(part1(input)) }
-//    withStopwatch { println(part2(input)) }
+//    withStopwatch { println(part1(input)) }
+    withStopwatch { println(part2(input)) }
 }
 
 private fun part1(input: List<String>): Long {
@@ -22,6 +22,9 @@ private fun part1(input: List<String>): Long {
 }
 
 private fun part2(input: List<String>): Long {
-    return 0
+    val almanac = input.toAlmanac()
+    return input.first().split(" ").drop(1).map { it.toLong() }.windowed(2, 2).minOf { (start, range) ->
+        (start..< start + range).minOf { seed -> almanac.getLocation(seed) }
+    } // BRUTE FORCE FTW!
 }
 
