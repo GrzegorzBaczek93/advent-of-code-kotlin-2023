@@ -97,3 +97,11 @@ fun <T> MutableList<T>.getOrPut(index: Int, defaultValue: T): T {
         defaultValue
     }
 }
+
+inline fun <T> Iterable<T>.sumOfIndexed(selector: (Int, T) -> Long): Long {
+    var sum: Long = 0
+    forEachIndexed { index, element ->
+        sum += selector(index, element)
+    }
+    return sum
+}
